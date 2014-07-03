@@ -1,0 +1,16 @@
+{
+  "name": "tsihosting/xenapi",
+  "description": "PHP Library to access the XenServer XMLRPC API",
+  "keywords": ["xenserver", "api"],
+  "homepage": "http://www.tsihosting.co.uk",
+  "type": "library",
+  "authors": {
+    {
+      "name": "Tim Igoe",
+      "homepage": "http://tim.igoe.me.uk"
+    }
+  ],
+  "require": {
+    "php": ">=5.4"
+  }
+}
