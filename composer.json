@@ -4,7 +4,7 @@
   "keywords": ["xenserver", "api"],
   "homepage": "http://www.tsihosting.co.uk",
   "type": "library",
-  "authors": {
+  "authors": [
     {
       "name": "Tim Igoe",
       "homepage": "http://tim.igoe.me.uk"
