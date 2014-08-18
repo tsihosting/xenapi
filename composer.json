@@ -16,8 +16,10 @@
     "php": ">=5.4"
   },
   "autoload": {
-    "files": { "xenapi.php" }
-  },
+    "psr-0": {
+      "TSIHosting": "src/"
+    }
+  }
   "provide": {
     "xenapi": "1.0.*"
   }
