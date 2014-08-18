@@ -17,7 +17,7 @@
   },
   "autoload": {
     "files": { "xenapi.php" }
-  }  
+  },
   "provide": {
     "xenapi": "1.0.*"
   }
