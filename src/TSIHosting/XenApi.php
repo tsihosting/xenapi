@@ -58,7 +58,7 @@
     * @param bool $incsession
     * @return mixed
     */
-   public function __call($method, $params, $incsession = true)
+   public function __call($method, $params)
    {
      if (!is_array($params))
        $params = array();
