@@ -1,6 +1,6 @@
 {
   "name": "tsihosting/xenapi",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "PHP Library to access the XenServer XMLRPC API",
   "keywords": ["xenserver", "api"],
   "homepage": "http://www.tsihosting.co.uk",
