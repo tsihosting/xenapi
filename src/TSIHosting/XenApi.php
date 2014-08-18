@@ -62,10 +62,10 @@
    {
      if (!is_array($params))
        $params = array();
-       
+
      if ($this->session)
-       $params[] = $this->session;
-       
+       $params = array_merge(array($this->session), $params);
+  
      list($mod, $method) = explode('_', $method, 2);
      $name = $mod . '.' . $method;
        
@@ -85,8 +85,8 @@
     */
    public function connect()
    {
-     $Ret = $this->session_login_with_password(array($this->user, $this->pass, '1.3'), false);
-     
+     $Ret = $this->session_login_with_password($this->user, $this->pass, '1.3');
+
      if ($Ret)
      {
        $this->session = $Ret;
@@ -107,14 +107,16 @@
      // Unknown return
      if (!is_array($response))
        return false;
-     
+
      // Success  
      if ($response['Status'] == 'Success')
-       return $response['value'];
+       return $response['Value'];
        
      // Invalid Session, reconnect it
      if ($response['ErrorDescription'][0] == 'SESSION_INVALID')
        return $this->connect();
+
+     return $response;
    }
    
     
@@ -136,7 +138,7 @@
      curl_setopt($Curl, CURLOPT_SSL_VERIFYPEER, false);
      curl_setopt($Curl, CURLOPT_SSL_VERIFYHOST, false);
      
-     curl_setopt($Curl, CURLOPT_RETURN_TRANSFER, 1);
+     curl_setopt($Curl, CURLOPT_RETURNTRANSFER, 1);
      
      curl_setopt($Curl, CURLOPT_HTTPHEADER, $Headers);
      curl_setopt($Curl, CURLOPT_POSTFIELDS, $Request);
