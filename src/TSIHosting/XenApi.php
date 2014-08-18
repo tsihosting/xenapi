@@ -8,7 +8,7 @@
  
  namespace TSIHosting;
  
- if (!function_exists('curl_init')) {
+ if (!function_exists('curl_init'))
   throw new Exception('XenAPI needs the CURL PHP extension.');
  
  class XenApi 
@@ -85,7 +85,15 @@
     */
    public function connect()
    {
-     return $this->session_login_with_password(array($this->user, $this->pass, '1.3'), false);
+     $Ret = $this->session_login_with_password(array($this->user, $this->pass, '1.3'), false);
+     
+     if ($Ret)
+     {
+       $this->session = $Ret;
+       return true;
+     }
+    
+     return false;
    }
    
    /** 
@@ -106,8 +114,7 @@
        
      // Invalid Session, reconnect it
      if ($response['ErrorDescription'][0] == 'SESSION_INVALID')
-       $this->connect
-
+       return $this->connect();
    }
    
     
