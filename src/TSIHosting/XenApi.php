@@ -9,7 +9,7 @@
  namespace TSIHosting;
  
  if (!function_exists('curl_init'))
-  throw new Exception('XenAPI needs the CURL PHP extension.');
+  throw new \Exception('XenAPI needs the CURL PHP extension.');
  
  class XenApi 
  {
